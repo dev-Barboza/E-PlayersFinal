@@ -17,21 +17,41 @@ namespace EPlayersFim.Models
 
         private const string PATH = "Database/equipe.csv";
 
+        
+        /// <summary>
+        /// Criar Pasta e caminho PATH
+        /// </summary>
         public Noticias()
         {
             CreateFolderAndFile(PATH);
         }
+        
+        /// <summary>
+        /// Criar e preparar linha csv
+        /// </summary>
+        /// <param name="noticias"></param>
         public void Create(Noticias noticias)
         {
             string[] linhas = {PrepararLinha(noticias)};
             File.AppendAllLines(PATH , linhas);
         }
 
+        /// <summary>
+        /// Organizar linha segundo os atributos
+        /// </summary>
+        /// <param name="noticias"></param>
+        /// <returns></returns>
+
+        
         private string PrepararLinha(Noticias noticias)
         {
             return $"{noticias.IdNoticia};{noticias.Imagem};{noticias.Titulo};{noticias.Texto}";
         }
 
+        /// <summary>
+        /// Deletar determinada noticia
+        /// </summary>
+        /// <param name="IdNoticia"></param>
         public void Delete(int IdNoticia)
         {
             
@@ -40,6 +60,11 @@ namespace EPlayersFim.Models
             RewriteCSV(PATH,linhas);
         }
 
+        
+        /// <summary>
+        /// retornar e ler as noticias com atributos dados
+        /// </summary>
+        /// <returns></returns>
         public List<Noticias> ReadAll()
         {
              List<Noticias> news = new List<Noticias>();
@@ -58,6 +83,10 @@ namespace EPlayersFim.Models
             return news;
         }
 
+        /// <summary>
+        /// reescever e atualizar linha
+        /// </summary>
+        /// <param name="noticias"></param>
         public void Update(Noticias noticias)
         {
             List<string> linhas = ReadAllLinesCSV(PATH);

@@ -13,21 +13,39 @@ namespace EPlayersFim.Models
 
         private const string PATH = "Database/equipe.csv";
 
+        
+        /// <summary>
+        /// Criar pasta e caminho(PATH)
+        /// </summary>
         public Equipe(){
             CreateFolderAndFile(PATH);
         }
 
+       /// <summary>
+       /// Criar e adicionar equipe
+       /// </summary>
+       /// <param name="e"></param>
         public void Create(Equipe e)
         {
             string[]linhas = {PrepararLinha(e)};
             File.AppendAllLines(PATH,linhas);
         }
 
+        /// <summary>
+        /// Organizar linha segundo atributos
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
         private string PrepararLinha(Equipe e)
         {
             return $"{e.IdEquipe};{e.Nome} ;{e.Imagem}";
         }
 
+        
+        /// <summary>
+        /// Excluir determinada equipe
+        /// </summary>
+        /// <param name="IdEquipe"></param>
         public void Delete(int IdEquipe)
         {
             List<string> linhas = ReadAllLinesCSV(PATH);
@@ -35,6 +53,10 @@ namespace EPlayersFim.Models
             RewriteCSV(PATH,linhas);
         }
 
+        /// <summary>
+        /// listar, ler as equipes,dado os atributos
+        /// </summary>
+        /// <returns></returns>
         public List<Equipe> ReadAll()
         {
             List<Equipe> equipes = new List<Equipe>();
@@ -52,6 +74,10 @@ namespace EPlayersFim.Models
             return equipes;
         }
 
+       /// <summary>
+       /// Atualizar lista de equipes
+       /// </summary>
+       /// <param name="e"></param>
         public void Update(Equipe e)
         {
             List<string> linhas = ReadAllLinesCSV(PATH);
