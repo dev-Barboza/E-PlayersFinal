@@ -35,3 +35,4 @@ C:\Users\maheu\Documents\EPlayersFim\obj\Debug\netcoreapp3.1\EPlayersFim.dll
 C:\Users\maheu\Documents\EPlayersFim\obj\Debug\netcoreapp3.1\EPlayersFim.pdb
 C:\Users\maheu\Documents\EPlayersFim\obj\Debug\netcoreapp3.1\EPlayersFim.genruntimeconfig.cache
 C:\Users\maheu\Documents\EPlayersFim\obj\Debug\netcoreapp3.1\EPlayersFim.csproj.CopyComplete
+C:\Users\maheu\Documents\EPlayersFim\obj\Debug\netcoreapp3.1\Razor\Views\Equipe\Index.cshtml.g.cs
