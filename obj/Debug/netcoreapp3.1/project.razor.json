@@ -20521,6 +20521,11 @@
   "RootNamespace": "EPlayersFim",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\maheu\\Documents\\EPlayersFim\\Views\\Noticia\\Index.cshtml",
+      "TargetPath": "Views\\Noticia\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\maheu\\Documents\\EPlayersFim\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"

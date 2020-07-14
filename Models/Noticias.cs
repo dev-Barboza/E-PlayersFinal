@@ -15,7 +15,7 @@ namespace EPlayersFim.Models
         public string Texto { get; set; }
         public string Imagem { get; set; }
 
-        private const string PATH = "Database/equipe.csv";
+        private const string PATH = "Database/Noticias.csv";
 
         
         /// <summary>
@@ -75,8 +75,9 @@ namespace EPlayersFim.Models
                 Noticias report = new Noticias();
                 report .IdNoticia = Int32.Parse(linha[0]);
                 report.Titulo = linha[1];
-                report.Imagem = linha[2];
-                report.Texto = linha[3];
+                report.Texto = linha[2];
+                report.Imagem = linha[3];
+                
 
                news.Add(report);
             }

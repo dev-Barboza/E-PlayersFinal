@@ -22,14 +22,14 @@ namespace EPlayersFim.Controllers
 
         public IActionResult Cadastrar(IFormCollection form)
         {
-            Equipe equipe = new Equipe();
-            equipe.IdEquipe = Int32.Parse(form["IdEquipe"]);
-            equipe.Nome = form["Nome"];
-            equipe.Imagem = form["Imagem"];
-            
-            equipeModel.Create(equipe);
+            Equipe newEquipe   = new Equipe();
+            newEquipe.IdEquipe = Int32.Parse(form["IdEquipe"]);
+            newEquipe.Nome     = form["Nome"];
+            newEquipe.Imagem   = form["Imagem"];
 
+            equipeModel.Create(newEquipe);            
             ViewBag.Equipes = equipeModel.ReadAll();
+
             return LocalRedirect("~/Equipe");
         }
 

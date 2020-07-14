@@ -2,4 +2,35 @@
 @{
     ViewData["Title"] = "Equipes";
 }
-<div>Teste</div>
+
+
+<form method="POST" action='@Url.Action("Cadastrar")'>
+    <label>ID</label>
+    <input type="text" name="IdEquipe" />
+
+    <label>Nome</label>
+    <input type="text" name="Nome" />
+
+    <label>Imagem</label>
+    <input type="text" name="Imagem" />
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+<table class="table table-responsive table -striped">
+    <thead>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Imagem</th>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Equipes)
+        {
+            <tr>
+                <td>@item.IdEquipe</td>
+                <td>@item.Nome</td>
+                <td>@item.Imagem</td>
+            </tr>
+        }
+    </tbody>
+</table>
