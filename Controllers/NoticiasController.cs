@@ -15,12 +15,23 @@ namespace EPlayersFim.Controllers
         
         Noticias noticiasModel = new Noticias();
 
+       
+       /// <summary>
+       /// ler as noticias a partir de uma bag
+       /// </summary>
+       /// <returns></returns>
         public IActionResult Index()
         {
             ViewBag.noticiaBag = noticiasModel.ReadAll();
             return View();
         }
 
+        
+        /// <summary>
+        /// Cadastra uma nova noticia
+        /// </summary>
+        /// <param name="form">Objeto utilizado</param>
+        /// <returns></returns>
         public  IActionResult Cadastrar(IFormCollection form)
         {
             Noticias novaNoticia = new Noticias();
