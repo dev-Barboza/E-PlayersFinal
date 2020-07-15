@@ -43,9 +43,9 @@ namespace EPlayersFim.Models
         /// <returns></returns>
 
         
-        private string PrepararLinha(Noticias noticias)
+        private string PrepararLinha(Noticias x)
         {
-            return $"{noticias.IdNoticia};{noticias.Imagem};{noticias.Titulo};{noticias.Texto}";
+            return $"{x.IdNoticia};{x.Imagem};{x.Titulo};{x.Texto}";
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace EPlayersFim.Models
             {
                 string[] linha = item.Split(";");
                 Noticias report = new Noticias();
-                report .IdNoticia = Int32.Parse(linha[0]);
+                report.IdNoticia = Int32.Parse(linha[0]);
                 report.Titulo = linha[1];
                 report.Texto = linha[2];
                 report.Imagem = linha[3];
