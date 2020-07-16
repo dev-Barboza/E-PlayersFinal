@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EPlayersFim.Models;
 using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace EPlayersFim.Controllers
 {
@@ -39,12 +40,41 @@ namespace EPlayersFim.Controllers
             novaNoticia.IdNoticia = Int32.Parse(form["IdNoticia"]);
             novaNoticia.Titulo = form ["Titulo"];
             novaNoticia.Texto = form ["Texto"];
-            novaNoticia.Imagem = form["Imagem"];
+            
+            
+            
+            var file    = form.Files[0];
+            var folder  = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Noticias");
+
+            if(file != null)
+            {
+                if(!Directory.Exists(folder)){
+                    Directory.CreateDirectory(folder);
+                }
+
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/", folder, file.FileName);
+                using (var stream = new FileStream(path, FileMode.Create))  
+                {  
+                    file.CopyTo(stream);  
+                }
+                novaNoticia.Imagem   = file.FileName;
+            }
+            else
+            {
+                novaNoticia.Imagem   = "padrao.png";
+            }
 
 
             noticiasModel.Create(novaNoticia);
 
             ViewBag.noticiaBag = noticiasModel.ReadAll();
+            return LocalRedirect("~/noticias");
+        }
+
+        [Route("{Noticias}/{id}")]
+        public IActionResult Excluir(int id)
+        {
+            noticiasModel.Delete(id);
             return LocalRedirect("~/noticias");
         }
 

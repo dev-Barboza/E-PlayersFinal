@@ -57,5 +57,13 @@ namespace EPlayersFim.Controllers
         }
 
         
+    [Route("[controller]/{id}")]
+        public IActionResult Excluir(int id)
+        {
+            equipeModel.Delete(id);
+            return LocalRedirect("~/Equipe");
+        }
+
+        
     }
 }
